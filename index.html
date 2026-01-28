@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Time Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Screen Time Manager</h1>
+            <p class="subtitle">Take regular breaks to protect your eyes</p>
+        </header>
+
+        <main class="content">
+            <!-- Timer Display -->
+            <div class="timer-display">
+                <div class="timer-circle">
+                    <div class="timer-time">
+                        <span id="minutes">00</span>:<span id="seconds">00</span>
+                    </div>
+                    <div class="timer-label">Break in</div>
+                </div>
+            </div>
+
+            <!-- Status Info -->
+            <div class="status-info">
+                <div class="info-card">
+                    <h3>Current Interval</h3>
+                    <p id="interval">43 minutes</p>
+                </div>
+                <div class="info-card">
+                    <h3>Continue Count</h3>
+                    <p id="continueCount">0</p>
+                </div>
+                <div class="info-card">
+                    <h3>Status</h3>
+                    <p id="status">Ready</p>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start Timer</button>
+                <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+                <button id="resetBtn" class="btn btn-danger">Reset</button>
+            </div>
+
+            <!-- Interval Sequence -->
+            <div class="sequence-info">
+                <h3>Break Intervals</h3>
+                <div class="sequence">
+                    <div class="interval-badge active">43 min</div>
+                    <div class="interval-badge">37 min</div>
+                    <div class="interval-badge">25 min</div>
+                    <div class="interval-badge">25 min...</div>
+                </div>
+                <p class="sequence-note">Intervals repeat after the initial sequence</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="statistics">
+                <h3>Today's Activity</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Sessions Completed</span>
+                        <span class="stat-value" id="sessionsCompleted">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Break Time</span>
+                        <span class="stat-value" id="totalBreakTime">0 min</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Session Time</span>
+                        <span class="stat-value" id="sessionTime">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Screen Time Manager. Stay healthy, take breaks!</p>
+        </footer>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notificationModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="notificationTitle">Time for a break!</h2>
+            <p id="notificationMessage">You've been working hard. Take a 5-minute break.</p>
+            <div class="modal-buttons">
+                <button id="continueBtn" class="btn btn-primary">Continue</button>
+                <button id="stopBtn" class="btn btn-danger">Stop & Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
